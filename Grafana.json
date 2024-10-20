@@ -1,0 +1,2298 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "This exporter is for monitoring information which is not provided from Tendermint’s basic Prometheus exporter (localhost:26660), and other specific information monitoring purposes",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 10942,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": "$Datasource",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdv6r7w3udaf4f"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Story Node Dashboard",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 0,
+        "y": 1
+      },
+      "id": 10,
+      "maxDataPoints": 100,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<img src=\"https://files.readme.io/50fccae-small-Storywhite.png\"/>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.2.2+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "expr": "Cosmos_labels{instance=\"192.168.1.64:26660\"}\t",
+          "hide": false,
+          "legendFormat": "{{chainId}}",
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "currentBlockTime"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FA6400",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "defaultBlockTime"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#1F60C4",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 9,
+        "y": 1
+      },
+      "id": 33,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cometbft_consensus_block_interval_seconds_sum{chain_id=\"iliad-0\"}/cometbft_consensus_block_interval_seconds_count{chain_id=\"iliad-0\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "currentBlockTime",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "[ Current Block Time ]",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 16,
+        "y": 1
+      },
+      "id": 5,
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": false
+      },
+      "pluginVersion": "11.2.2+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "cometbft_consensus_height{chain_id=\"iliad-0\",instance=\"192.168.1.64:26660\"}",
+          "hide": false,
+          "legendFormat": "BlockHeight",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "0": {
+                  "text": "Staking Fund: the Never Jailed Crew"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "2": {
+                  "text": "Ztake.org"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "12": {
+                  "text": "B-Harvest"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "48": {
+                  "text": "jackzampolin"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "49": {
+                  "text": "P2P.ORG - P2P Validator"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "97": {
+                  "text": "F4RM"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "106": {
+                  "text": "Forbole"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "107": {
+                  "text": "ATEAM"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "108": {
+                  "text": "DokiaCapital"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "141": {
+                  "text": "DragonStake"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "146": {
+                  "text": "Chorus One"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "154": {
+                  "text": "Any Labs"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "198": {
+                  "text": "01node.com"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "257": {
+                  "text": "syncnode"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "260": {
+                  "text": "Firmamint"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "321": {
+                  "text": "HashQuark"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "326": {
+                  "text": "Cosmostation"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "329": {
+                  "text": "Atom Sandler"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "337": {
+                  "text": "Stir"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "370": {
+                  "text": "lunamint"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "375": {
+                  "text": "BouBouNode"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "377": {
+                  "text": "KalpaTech"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "382": {
+                  "text": "kochacolaj"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "391": {
+                  "text": "Sikka"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "407": {
+                  "text": "Compass"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "408": {
+                  "text": "cephalopod equipment coop"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "442": {
+                  "text": "iqlusion"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "461": {
+                  "text": "Figment Networks"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "468": {
+                  "text": "chainflow-cosmos-prodval-01"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "490": {
+                  "text": "Ping"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "497": {
+                  "text": "Stake Capital"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "508": {
+                  "text": "Cryptium Labs"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "548": {
+                  "text": "Umbrella"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "567": {
+                  "text": "hashtower"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "593": {
+                  "text": "BlockMatrix"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "644": {
+                  "text": "Cypher Core"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "683": {
+                  "text": "Castlenode"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "689": {
+                  "text": "Certus One"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "697": {
+                  "text": "noma"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "700": {
+                  "text": "2nd only to Certus One in GoS: in3s.com"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "702": {
+                  "text": "stake.zone"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "709": {
+                  "text": "Blockpower"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "712": {
+                  "text": "SparkPool"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "715": {
+                  "text": "Wetez"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "721": {
+                  "text": "firstblock.io"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "725": {
+                  "text": "omega3"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "726": {
+                  "text": "SNZPool"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "727": {
+                  "text": "Blockscale"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "739": {
+                  "text": "stake.fish | bitfish"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "745": {
+                  "text": "IRISnet-Bianjie"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "751": {
+                  "text": "validator.network | Security first. Highly available."
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "796": {
+                  "text": "Sentinel"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "806": {
+                  "text": "Skystar Capital"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "809": {
+                  "text": "HyperBlocksPro"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "817": {
+                  "text": "Bity.com"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "822": {
+                  "text": "Bison Trails"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "861": {
+                  "text": "Angel"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "864": {
+                  "text": "Mythos"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "872": {
+                  "text": "Staked"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "881": {
+                  "text": "kytzu"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "892": {
+                  "text": "Staking Facilities"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "971": {
+                  "text": "melea"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "985": {
+                  "text": "CoinoneNode"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "986": {
+                  "text": "nylira.net"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "987": {
+                  "text": "Delega Networks"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "988": {
+                  "text": "Genesis Lab"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "993": {
+                  "text": "NewRoad.Capital"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "995": {
+                  "text": "commercio.network"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "997": {
+                  "text": "POS Bakerz"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1000": {
+                  "text": "InfStones (Infinity Stones)"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1008": {
+                  "text": "SecThor42 | Vali the Thor"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1013": {
+                  "text": "Dominator"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1015": {
+                  "text": "ChainLayer"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1019": {
+                  "text": "Cosmos Suisse"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1022": {
+                  "text": "Cobo"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1025": {
+                  "text": "Polychain Labs"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1026": {
+                  "text": "StakeWith.Us"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1037": {
+                  "text": "Simply VC"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "1820": {
+                  "text": "MathWallet"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "2017": {
+                  "text": "atom.bi23"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "3052": {
+                  "text": "HuobiPool"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "3206": {
+                  "text": "Easy 2 Stake"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "5890": {
+                  "text": "SIGN Capital"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "6069": {
+                  "text": "Neptune Stake (TSXV:DASH)"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "7089": {
+                  "text": "SSSnodes"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "7529": {
+                  "text": "DappPub"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "7891": {
+                  "text": "WeStaking"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "8219": {
+                  "text": "Huobi Wallet"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "8879": {
+                  "text": "KysenPool.io"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "9048": {
+                  "text": "gf.network"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "9433": {
+                  "text": "IOSG"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "9486": {
+                  "text": "MEET.ONE"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "9646": {
+                  "text": "Velocity V1"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "12546": {
+                  "text": "HLT"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "12915": {
+                  "text": "BlockPool"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "13422": {
+                  "text": "Sanka Network"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "14799": {
+                  "text": "MultiChain Ventures"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "15291": {
+                  "text": "Cosmos-Validator.com"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "15697": {
+                  "text": "Cosmonaut Consortium"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "18076": {
+                  "text": "Cosmic Validator"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 1
+      },
+      "id": 45,
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.2+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "lib_buildinfo_version{version=\"v0.9.12\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "LibraryVersion",
+          "refId": "A"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "version"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "totalTokens"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#5794F2",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "notBondedTokens"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FF9830",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bondedTokens"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#73BF69",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 0,
+        "y": 4
+      },
+      "id": 56,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.5, sum(rate(cometbft_consensus_block_interval_seconds_bucket{chain_id=\"iliad-0\"}[5m])) by (le))",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "{{label_name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "[ Block Interval Times ]",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 16,
+        "y": 4
+      },
+      "id": 19,
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": false
+      },
+      "pluginVersion": "11.2.2+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cometbft_consensus_validators_power{chain_id=\"iliad-0\"}\n",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Validator Stake",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 4
+      },
+      "id": 49,
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": false
+      },
+      "pluginVersion": "11.2.2+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "cometbft_consensus_validators{chain_id=\"iliad-0\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Validator Count",
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 11,
+        "x": 9,
+        "y": 7
+      },
+      "id": 57,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(cosmos_tx_count[5m])) ",
+          "instant": false,
+          "legendFormat": "Transaction",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(cosmos_tx_successful [5m])) ",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Success",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Transaction Success Rate",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "Latest blockheight"
+                },
+                "1": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "Syncing"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 20,
+        "y": 7
+      },
+      "id": 26,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.2.2+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "cometbft_blocksync_syncing{chain_id=\"iliad-0\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "jailStatus",
+          "refId": "A"
+        }
+      ],
+      "title": "[ Sync Status ]",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "totalTokens"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#5794F2",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "notBondedTokens"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FF9830",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bondedTokens"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#73BF69",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 0,
+        "y": 13
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "cosmos_minted_tokens{module=\"mint\"} ",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "{{label_name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "[ Token Info ]",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ee1bwfsxcyrk0f"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Inflation_Default Block Time",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 6,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 15,
+        "x": 9,
+        "y": 14
+      },
+      "id": 48,
+      "interval": "",
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "6.3.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ee1bwfsxcyrk0f"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.5, sum(rate(cometbft_abci_connection_method_timing_seconds_bucket{chain_id=\"iliad-0\"}[5m])) by (le, method))\n",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "{{Method}}",
+          "refId": "A"
+        }
+      ],
+      "title": "[ABCI Method Timing]",
+      "transparent": true,
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "prometheus",
+          "value": "ee1bwfsxcyrk0f"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "select the datasource",
+        "multi": false,
+        "name": "Datasource",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Cosmos-Validator_exporter",
+  "uid": "LNiwen39e0cmHlwn8Jwmwsff",
+  "version": 1,
+  "weekStart": ""
+}
